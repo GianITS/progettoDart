@@ -25,3 +25,5 @@ doc/api/
 # Created by `dart pub`
 .dart_tool/
 >>>>>>> 02e1f52 (luca)
+.env*
+.DS_Store

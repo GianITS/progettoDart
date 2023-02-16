@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See https://www.dartlang.org/guides/libraries/private-files
 
 # Files and directories created by pub
@@ -19,3 +20,8 @@ doc/api/
 *.js_
 *.js.deps
 *.js.map
+=======
+# https://dart.dev/guides/libraries/private-files
+# Created by `dart pub`
+.dart_tool/
+>>>>>>> 02e1f52 (luca)

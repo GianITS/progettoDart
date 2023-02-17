@@ -13,12 +13,18 @@ void main(List<String> arguments) async {
   // print(await QuoteService.getQuote(apiKey, 1));
   print("Enter character name...");
   String characterName = stdin.readLineSync().toString();
-  String characterID =
-      await CharacterIdService.getCharacterId(apiKey, characterName);
-  print(characterID);
-  List<String> cits =
-      await CharacterQuotesService.getCharacterQuote(apiKey, characterID);
-  for (var cit in cits) {
-    print(cit);
+  try {
+    String characterID =
+        await CharacterIdService.getCharacterId(apiKey, characterName);
+    print(characterID);
+    List<String> cits =
+        await CharacterQuotesService.getCharacterQuote(apiKey, characterID);
+    for (var cit in cits) {
+      print(cit);
+    }
+  } catch (identifier) {
+    print("No characters found!");
+    print("Try again!");
   }
 }
+// export PATH="$PATH:/Users/gian/Developer/flutter/bin"

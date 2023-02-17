@@ -1,12 +1,15 @@
 import 'dart:convert';
-import 'package:progettodart/mixins/http_connect_api_mixin.dart';
+import 'package:progettodart/mixins/auth_headers_mixin.dart';
+import 'package:http/http.dart' as http;
 
 class CharacterIdService {
   static Future<String> getCharacterId(String apiKey, String name) async {
-    final res =
-        await HttpConnectionMixin.connetcToApiAsync(apiKey, 'character');
-
-    final data = jsonDecode(res) as Map<String, dynamic>;
+    final url = Uri.parse('https://the-one-api.dev/v2/character');
+    final response = await http.get(
+      url,
+      headers: AuthHeadersMixin.getAuthHeaders(apiKey),
+    );
+    final data = jsonDecode(response.body) as Map<String, dynamic>;
     var list = data['docs'] as List;
 
     String characterID = '';
